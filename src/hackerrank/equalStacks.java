@@ -12,7 +12,7 @@ public class equalStacks {
     	} 
     	return c;
     }
-    static boolean equalStacks(SumStack a, SumStack b, SumStack c) {
+    static boolean stacksEqual(SumStack a, SumStack b, SumStack c) {
     	if (a.sum == b.sum && a.sum == c.sum) {
     		return true;
     	}
@@ -65,10 +65,11 @@ public class equalStacks {
         b = new SumStack(h2, sum2);
         c = new SumStack(h3, sum3);
         
-        while (!equalStacks(a,b,c)) {
+        while (!stacksEqual(a,b,c)) {
         	SumStack big = biggest(a,b,c);
         	big.pop();
         }
         System.out.println(a.sum);
+        in.close();
     }
 }
