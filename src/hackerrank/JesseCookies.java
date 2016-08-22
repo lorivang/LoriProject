@@ -2,7 +2,12 @@ package hackerrank;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;
-
+//Jesse loves cookies. He wants the sweetness of all his cookies to be greater than value . To do this, Jesse repeatedly mixes two cookies with the least sweetness. He creates a special combined cookie with:
+//
+//sweetness Least sweet cookie 2nd least sweet cookie).
+//
+//He repeats this procedure until all the cookies in his collection have a sweetness .
+//You are given Jesse's cookies. Print the number of operations required to give the cookies a sweetness . Print if this isn't possible. 
 public class JesseCookies {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

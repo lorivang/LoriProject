@@ -9,6 +9,7 @@ import org.junit.Test;
 public class SortAlgsTest {
 
 	int[][] tests = {{1,0},
+			{4,22,8,1,-7,0,4,1,13,8},
 			{0,1,2,3,4,5,6,7,8},
 			{1,0,8,3,6,7,9},
 			{0,6,-1,4,0,3,9,2},

@@ -20,9 +20,11 @@ public class EditDistance {
 		int add = 1 + editDist(a.substring(1), b.substring(0));
 		return Math.min(rep, Math.min(del, add));
 	}
+	
 	public static int replaceCost(String a, String b, int aIndex, int bIndex) {
 		return (a.charAt(aIndex) == b.charAt(bIndex) ? 0 : 1);
 	}
+	
 	public static int editDistNonRecursive(String a, String b) {
 		// allocate a matrix of int representing the number of transformations at each step.
 		int[][] mins = new int[a.length()][b.length()];

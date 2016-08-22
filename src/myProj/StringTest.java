@@ -27,7 +27,17 @@ public class StringTest {
 		System.out.println(removeDupsSet(t.toCharArray()));
 		}
 	}
-
+	
+	char[] reverseString(char[] a) {
+	    int mid = a.length / 2;
+	    for (int i = 0; i < mid; i++) {
+	        char temp = a[i];
+	        a[i] = a[a.length -i -1];
+	        a[a.length -i -1] = temp;
+	    }
+	    return a;
+	}
+	
 	private static String reverseInPlace(String s) {
 		// swapping
 		char[] rev = s.toCharArray();
@@ -89,6 +99,7 @@ public class StringTest {
 //			input[i] = 0;  // clear out remaining chars.
 //		}
 //		Arrays.copyOf(input, tail);
+//		input[tail] = 0;
 //		return input;
 	}
 	

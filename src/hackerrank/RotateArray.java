@@ -7,11 +7,14 @@ public class RotateArray {
 	public static void rotateLeft(int[] arr, int k) {
 		int n = arr.length;
         for (int i = 0; i < n; i++) {
+        	// Mod the rotate number.
             k = k % n;
+            // add i and mod again to get the orig position
             int oldPos = (i + k) % n;
             System.out.print(arr[oldPos] + " ");
         }		
 	}
+	
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

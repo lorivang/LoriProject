@@ -48,6 +48,26 @@ public class vmware3 {
 
 	    }
 
+	    /**
+	     * remove duplicate values from linked list by manipulating next pointers.
+	     * @param head
+	     * @return the new head
+	     */
+	    LinkedListNode RemoveDuplicates(LinkedListNode head) {
+  // This is a "method-only" submission. 
+  // You only need to complete this method. 
+	    	LinkedListNode slow = head; // will point to first of repeated sequence.
+	    	LinkedListNode fast = head; // will point to next after repeated sequence.
+    while (fast != null) {
+        while (fast != null && slow.val == fast.val) {
+            fast = fast.next;
+        }
+        slow.next = fast;
+        slow = fast;
+    }
+    return head;
+}
+	    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

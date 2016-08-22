@@ -8,7 +8,7 @@ public class DataCompression {
         String s = in.next();
 
         char[] cs = s.toCharArray();
-        StringBuffer ret = new StringBuffer(s.length()); // max length
+        StringBuilder ret = new StringBuilder(s.length()); // max length
         for (int i = 0; i < s.length(); i++) {
         	int charcount = 1;
         	while (i+1 < s.length() && cs[i] == cs[i+1]) {

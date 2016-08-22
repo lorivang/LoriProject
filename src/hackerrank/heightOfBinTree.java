@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class heightOfBinTree {
-    class Node {
+    static class Node {
        int data;
        Node left;
        Node right;
@@ -33,6 +33,19 @@ public class heightOfBinTree {
     	doHeight(root, 0);
     	return(highestHeight);
     }
+    
+	static Node Insert(Node root, int value) {
+		if (root == null) {
+			Node node = new Node();
+			node.data = value;
+			root = node;
+		} else if (root.data > value)
+			root.left = Insert(root.left, value);
+		else if (root.data < value)
+			root.right = Insert(root.right, value);
+
+		return root;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

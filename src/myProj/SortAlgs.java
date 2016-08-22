@@ -128,16 +128,16 @@ public class SortAlgs {
 			return;
 		}
 		// pick a pivot (don't forget to offset it by low!!!
-		int pivot = low + ((high - low) /2);
+		int pivot = a[low + ((high - low) /2)];
 		int i = low;
 		int j = high;
 		while (i < j)  {
 			// find an element on the low side that is greater than the pivot. Note the < is necessary to increment i.
-			while (a[i] < a[pivot]) {
+			while (a[i] < pivot) {
 				i++;
 			}
 			// find an element on the high side that is less than the pivot.
-			while (a[j] > a[pivot]) {
+			while (a[j] > pivot) {
 				j--;
 			}
 
