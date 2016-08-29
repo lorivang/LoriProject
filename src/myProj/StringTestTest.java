@@ -7,6 +7,7 @@ import org.junit.Test;
 public class StringTestTest {
 
 	private static final String[] testStrings = {
+			"We promptly judged antique ivory buckles for the next prize",
 			"The quick brown fox jumps over the lazy dog.",
 			"Simple test String",
 			"Contains numbers 2389 8928374 829374 and punctuation (*^#@#<>:",

@@ -1,7 +1,6 @@
 package hackerrank;
 
-
-
+import java.util.Stack;
 
 public class visa1 {
 	static String[] braces(String[] values) {
@@ -22,28 +21,35 @@ public class visa1 {
 
     private static boolean doBraces(String s) {
 
-    	if (s.length() == 0) {
-    		return true;
+    	Stack<Character> braceStack = new Stack<>();
+    	char[] schar = s.toCharArray();
+    	for (Character c : schar) {
+    		if (isOpenParen(c)) {
+    			braceStack.push(c); 
+    		} else {
+    			if (!matchBrace(braceStack.pop(), c)) {
+    				return false;
+    			}
+    		}
     	}
-    	if (s.length() == 1) {
-    		return false;
-    	}
-    	int endindex = 0;
-    	if (s.charAt(0) == '(') {
-    		endindex = s.lastIndexOf(')');
-    	} else if (s.charAt(0) == '{') {
-    		endindex = s.lastIndexOf('}');
-    	} else if (s.charAt(0) == '[') {
-    		endindex = s.lastIndexOf(']');
-    	} 
-    	if (endindex == -1) {
-    		return false;
-    	}
-    	// reached end, only do the first part.
-    	if (endindex >= s.length()-1) {
-    		return (doBraces(s.substring(1, endindex)));
-    	} 
-    	return (doBraces(s.substring(1, endindex)) && doBraces(s.substring(endindex+1)));
+    	return (braceStack.isEmpty());
+	}
+
+	private static boolean matchBrace(Character open, Character close) {
+		// TODO Auto-generated method stub
+		if (close == ']') {
+			return (open == '[');
+		} else if (close == '}') {
+			return (open == '{'); 
+		} else if (close == ')') {
+			return (open == '(');
+		}
+		return false;
+	}
+
+	private static boolean isOpenParen(Character c) {
+		// TODO Auto-generated method stub
+		return (c == '{' || c == '(' || c == '[');
 	}
 
 	public static void main(String[] args) {

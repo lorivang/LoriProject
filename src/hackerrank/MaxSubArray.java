@@ -32,7 +32,7 @@ public class MaxSubArray {
             int contigsum = arr[0];
             int currentMax = arr[0];
             for(int j = 1; j < arr.length; j++) {
-            	// if the new sum is less than the next element, start over with next element.
+            	// if the new sum would be less than the next element, start over with next element.
                 if (contigsum + arr[j] < arr[j]) {
                     contigsum = arr[j];
                 } else {
