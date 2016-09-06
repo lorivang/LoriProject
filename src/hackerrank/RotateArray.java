@@ -32,5 +32,6 @@ public class RotateArray {
         for (int i = 0; i < m; i++) {
             System.out.println(arr[((marray[i] -k) % n + n) % n]);
         }
+        in.close();
 }
 }

@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * find the minimum distance between any pair of equal elements in the array.
+ *
+ */
 public class MinDistance {
     public static void main(String[] args) {
-    	Map<Integer, Integer> indexMap = new HashMap<>();
+    	Map<Integer, Integer> indexMap = new HashMap<>(); // maps a number to it's index.  Can't use arraylist because of duplicate numbers ... indexOf returns first.
     	Integer runningMin = Integer.MAX_VALUE;
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
