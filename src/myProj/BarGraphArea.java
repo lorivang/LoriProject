@@ -13,7 +13,8 @@ public class BarGraphArea {
 	public static void main(String[] args) {
 
 		int[][] tests = {
-				{1,2,3,4,5,6}, {1,4,5,3,3,5},
+				{1,2,3,4,5,6}, 
+				{1,4,5,3,3,5},
 				{1,1,1,1,1,1,6},
 				{6,1,1,1,1}
 		};
@@ -33,18 +34,16 @@ public class BarGraphArea {
 	        while(i<n){
 	            if(stack.isEmpty() || arr[stack.peek()]<=arr[i])
 	                stack.push(i++);
-	            else{
-	                top = stack.peek();
-	                stack.pop();
+	            else{  // new number is greater than top of stack, don't increment i
+	                top = stack.pop();
 	                area = arr[top] * (stack.isEmpty() ? i : i-stack.peek()-1);
 	                if(max<area)
 	                    max = area;
 	            }
 	        }
 	        while(!stack.isEmpty()){
-	            top = stack.peek();
-	            stack.pop();
-	            area = arr[top] * (stack.isEmpty()? i : i-stack.peek()-1);
+	            top = stack.pop();
+	            area = arr[top] * (stack.isEmpty()? n : n-stack.peek()-1);
 	            if(max<area)
 	                max = area;
 	        }

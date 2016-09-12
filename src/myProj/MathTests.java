@@ -14,6 +14,7 @@ public class MathTests {
 		int[][] tests = {{-1,8,3,1,-2,-6,-9,10,-1,8,-8,0,9,-4,2}, { 0, 1}, {-1,-1,1,1,0,0,0}, {0,0,0}};
 		System.out.println(find2ndMax(tests[0]));
 		for (int[] t : tests) {
+			System.out.println("2 sum : " + two_sum(t, 10) + " hash: " + two_sum_hash(t, 10));
 			System.out.println("Finding 3sum of " + Arrays.toString(t));
 			List<int[]> result = findTriple_3(t);
 			for (int[] r : result) {
@@ -78,9 +79,6 @@ public class MathTests {
 	
 	private static List<Integer> findArmstrongs(int limit) {
 		List<Integer> ret = new ArrayList<>();
-		// determine dimensions of limit
-		int dim = 0;
-		for (int i = 1; i < limit; i*=10, dim++);
 		
 		for (int i = 0; i < limit; i++) {
 			if (isArmstrong(i)) { // found one!
@@ -127,4 +125,34 @@ public class MathTests {
 	        }
 	        return retVal;
 	    }
+	   
+	   private static boolean two_sum(int[] a, int k) {
+		   Arrays.sort(a);
+		   int start = 0;
+		   int end = a.length-1;
+		   while (start < end) {
+			   if (a[start] + a[end] == k) {
+				   return true;
+			   }
+			   if (a[start] + a[end] < k) {
+				   // too small, need to add more on start
+				   start++;
+			   } else {
+				   end--;				   
+			   }
+		   }
+		return false;	   
+	   }
+	   
+	   
+	   private static boolean two_sum_hash(int[] a, int k) {
+		   Map<Integer, Integer> myMap = new HashMap<>(); // maps k-a[i] to i
+		   for (int i = 0; i < a.length; i++) {
+			   if (myMap.containsKey(a[i])) {
+				   return true;
+			   }
+			   myMap.put(k-a[i], i); 
+		   }
+		return false;	   
+	   }
 }

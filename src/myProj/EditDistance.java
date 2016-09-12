@@ -54,15 +54,38 @@ public class EditDistance {
 		return mins[0][0];
 	}
 	
+	static int myEditDist(char[] a, char[] b) {
+		int[][] dpMatrix = new int[a.length + 1][b.length + 1];
+		//seed the last row and last column with zeros
+		for (int i = 0; i < a.length + 1; i++) {
+			dpMatrix[i][b.length] = 0;
+		}
+		for (int i = 0; i < b.length + 1; i++) {
+			dpMatrix[a.length][i] = 0;
+		}
+		// Starting with bottom right (ignoring seed) for each box, calculate the cost
+		for (int i = a.length -1; i >= 0; i--) {
+			for (int j = b.length - 1; j >= 0; j--) {
+				if (a[i] == b[j]) {
+					// same letter, no additional replacement cost, so just carry previous cost.
+					dpMatrix[i][j] = dpMatrix[i+1][j+1];
+				} else {
+					// need to either delete or add or replace a letter here
+					dpMatrix[i][j] = 1 + Math.min(dpMatrix[i+1][j+1],Math.min(dpMatrix[i+1][j], dpMatrix[i][j+1]));
+				}
+			}
+		}
+		return dpMatrix[0][0];
+	}
 	
 	public static void main(String[] args) {
-		String[][] tests = {{"cat", "car"},
+		String[][] tests = {{"cit", "cat"}, {"cat", "car"},
 				{"food","flood"},
 		{"abcdefghijklmnop","acefhjlnp"},
 		{"dog","cat"},
 		};
 		for (String[] test : tests) {
-			System.out.println("Edit Dist btw " + test[0] + " " + test[1] + " is " + editDist(test[0], test[1]) + " " + editDistNonRecursive(test[0], test[1]));
+			System.out.println("Edit Dist btw " + test[0] + " " + test[1] + " is " + myEditDist(test[0].toCharArray(), test[1].toCharArray()) + " " + editDistNonRecursive(test[0], test[1]));
 		}
 
 	}
