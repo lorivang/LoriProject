@@ -6,7 +6,7 @@ public class Patterns {
 	public static class MySingleton {
 		final static MySingleton instance = new MySingleton();
 		
-		MySingleton() {
+		private MySingleton() {
 		}
 		
 		public static MySingleton getInstance() {

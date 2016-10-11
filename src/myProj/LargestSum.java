@@ -12,7 +12,7 @@ public class LargestSum {
 	
 	static int largestSum(int[] a) {
 
-		// the trick is that if sumSoFar is < a[i], drop sumSoFar and start with a[i].
+		// the trick is that if sumSoFar+a[i] is < a[i], drop sumSoFar and start with a[i].
 		int sumSoFar = a[0];
 		int startSoFar = 0;
 		currentMax = sumSoFar;

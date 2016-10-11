@@ -4,15 +4,33 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
+
 import myProj.MyTestClass.SingleLinkedNode;
 import myProj.MyTestClass.SinglyLinkedList;
 
 public class LinkedListTest {
 
+	class Node {
+		String data;
+		Node next;
+	}
+	
 	public static void main(String[] args) {
 		MyTestClass mtc = new MyTestClass();
 		MyTestClass.SinglyLinkedList<String> Sll = mtc.new SinglyLinkedList<>();
         String[] test = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
+        LinkedListTest llt = new LinkedListTest();
+        Node head = llt.new Node();
+        head.data = test[0];
+        Node next = head;
+        for (int i = 1; i < test.length; i++) {
+        	
+        	next.next = llt.new Node();
+        	next = next.next;
+        	next.data = test[i];
+        }
+        head = reverse(head);
         Sll.addAll(test);
         MyTestClass.prettyPrint(Sll);
        // Sll.setHead(Reverse(Sll.getHead()));
@@ -144,5 +162,15 @@ public class LinkedListTest {
 	    head.getNext().setNext(head); 
 	    head.setNext(null);
 	    return n;
+	}
+	
+	static Node reverse(Node head) {
+		if (head.next == null) {
+			return head;
+		}
+		Node temp = reverse(head.next);
+		head.next.next = head;
+		head.next = null;
+		return temp;
 	}
 }

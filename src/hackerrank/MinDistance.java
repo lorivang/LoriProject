@@ -10,7 +10,8 @@ import java.util.Scanner;
  */
 public class MinDistance {
     public static void main(String[] args) {
-    	Map<Integer, Integer> indexMap = new HashMap<>(); // maps a number to it's index.  Can't use arraylist because of duplicate numbers ... indexOf returns first.
+    	Map<Integer, Integer> indexMap = new HashMap<>(); // maps a number to it's index.  
+    													// Can't use arraylist because of duplicate numbers ... indexOf returns first.
     	Integer runningMin = Integer.MAX_VALUE;
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
